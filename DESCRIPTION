@@ -1,8 +1,23 @@
-Package: pkgDemo
+Package: RLC
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Reed College Library Checkout Data from 2018-2020
 Version: 0.1.0
-Author: Who wrote it
+Author: 
+    c(person( given = "Taylor",
+              family = "Blair",
+              role = c("aut", "cre"),
+              email = "tblair@reed.edu",
+              comment = c(ORCID = "0000-0002-2130-9256")),
+      person( given = "Ali",
+              family = "Taqi",
+              role =  c("aut", "cre"),
+              email = "taqia@reed.edu"),
+      person( given = "Lucas",
+              family = "Yong",
+              role =  c("aut", "cre"),
+              email = "lucasyong@reed.edu")
+             
+)
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
