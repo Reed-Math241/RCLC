@@ -18,11 +18,11 @@ The development version of Reed Library Checkout is available from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Reed-Math241/pkgDemo")
+devtools::install_github("Reed-Math241/pkgGrpn")
 ```
 
 ## Example
 
 ``` r
-library(pkgDemo)
+library(RCLC)
 ```
