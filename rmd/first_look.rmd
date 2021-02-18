@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 # Load libraries
 library(tidyverse)
+library(reticulate)
+library(readxl)
 ```
 
 
@@ -21,7 +23,7 @@ library(tidyverse)
 
 ```{r}
 ## Import data 
-reed_checkouts <- read_excel("../data-raw/Hauser_Circulation_Statistics_2018-2020.xlsx")
+reed_checkouts <- read_excel("data-raw/Hauser_Circulation_Statistics_2018-2020.xlsx")
 ## Rename variables
 colnames(reed_checkouts) <- c("Title", "Author", "Published", "Location", "Barcode", "Call_No",
                               "Copies","Loaned", "Returned", "Patron")
@@ -41,6 +43,24 @@ reed_checkouts$Published <- substr(reed_checkouts$Published, 1, 4)
 
 ## COLUMN: Title ##
 reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
+
+```
+
+```{python}
+import nltk
+nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')
+
+import pandas as pd
+def clean_str(s0):
+  tagged = nltk.pos_tag(nltk.word_tokenize(s0))
+  return " ".join([word[0] for word in tagged if word[1]=="NNP"])
+
+def name_clean(authors):
+  return [clean_str(mess) if mess == mess else "" for mess in authors]
+  
+#authors = name_clean(authors)
+
 ```
 
 # Save and Export

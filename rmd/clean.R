@@ -16,7 +16,7 @@ colnames(reed_checkouts) <- c("Title", "Author", "Published", "Location", "Barco
                               "Copies","Loaned", "Returned", "Patron")
 ### Create new variables
 ## Senior Thesis: A new boolean indicating checkout is a senior thesis
-reed_checkouts$Thesis <- reed_checkouts$Call_No=="	Thesis"
+reed_checkouts$Thesis <- reed_checkouts$Call_No== "Thesis"
 ## Remove unwanted columns
 reed_checkouts <- subset(reed_checkouts, select = -c(Barcode, Call_No))
 
