@@ -1,7 +1,8 @@
 Package: RLC
 Type: Package
-Title: Reed College Library Checkout Data from 2018-2020
+Title: Reed Library Checkout Data
 Version: 0.1.0
+Date: 2021-02-17
 Author: 
     c(person( given = "Taylor",
               family = "Blair",
@@ -22,9 +23,12 @@ Author:
               email = "lebow@reed.edu")
              
 )
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Check out data from the Reed College Library from 8/1/2018 to 7/30/20.  
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/Reed-Math241/pkgGrpn
+BugReports: https://github.com/Reed-Math241/pkgGrpn/issues
+Imports: 
+    readxl, 
+    dplyr
