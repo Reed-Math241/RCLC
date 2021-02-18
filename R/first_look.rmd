@@ -9,22 +9,75 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# Load libraries
+*Ha ha*
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+library(tidyverse)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+# Import Data
+```{r}
+reed_checkouts <- read_excel("data-raw/Item_Circulation_Statistics_2018-2020_PatronGroups.xlsx")
 
-```{r pressure, echo=FALSE}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+#Clean Columns
+
+## Publication date
+
+Previously included copyright symbols, periods, and multiple dates
+
+```{r}
+reed_checkouts$`Publication Date` <- gsub("[^0-9]", "", reed_checkouts$`Publication Date`)
+reed_checkouts$`Publication Date` <- substr(reed_checkouts$`Publication Date`, 1, 4)
+```
+
+## Title
+
+
+```{r}
+reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
+
+```
+
+
+# New Variables
+
+## Senior Thesis
+
+```{r}
+
+reed_checkouts$Thesis <- reed_checkouts$`Call Number`=="	
+Thesis"
+
+```
+
+# Remove variables
+
+```{r}
+
+reed_checkouts <- subset(reed_checkouts, select = -c(Barcode, `Call Number`))
+
+
+```
+
+# Variable names
+
+```{r}
+
+colnames(reed_checkouts) <- c("Title", "Author", "Published", "Location", "Copies",
+                              "Loaned", "Returned", "Patron", "Thesis")
+
+```
+
+
+# Save
+```{r}
+
+write_csv(reed_checkouts, "RCLC.csv")
+
+```
