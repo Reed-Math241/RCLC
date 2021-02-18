@@ -21,8 +21,8 @@ Author:
               family = "Lebow",
               role =  c("ctb"),
               email = "lebow@reed.edu")
-             
-)
+              )
+Maintainer: Taylor Blair <tblair@reed.edu>
 Description: Check out data from the Reed College Library from 8/1/2018 to 7/30/20.  
 License: What license is it under?
 Encoding: UTF-8
@@ -30,10 +30,10 @@ LazyData: true
 URL: https://github.com/Reed-Math241/pkgGrpn
 BugReports: https://github.com/Reed-Math241/pkgGrpn/issues
 Imports: 
-    dplyr
+    tidyverse
 Suggests:
     knitr,
-    rmarkdown,
-    tibble,
-    ggplot2,
-    dplyr
+    rmarkdown
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.1.1
