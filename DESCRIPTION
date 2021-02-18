@@ -16,6 +16,10 @@ Author:
               family = "Yong",
               role =  c("aut", "cre"),
               email = "lucasyong@reed.edu")
+      person( given = "Mahria",
+              family = "Lebow",
+              role =  c("ctb"),
+              email = "lebow@reed.edu")
              
 )
 Maintainer: The package maintainer <yourself@somewhere.net>
