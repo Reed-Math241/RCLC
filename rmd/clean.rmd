@@ -1,0 +1,90 @@
+---
+title: "Looking through data"
+author: "Taylor Blair & Ali"
+date: "2/17/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Ha ha*
+
+```{r}
+# Load libraries
+library(tidyverse)
+library(reticulate)
+library(readxl)
+```
+
+
+# Import and Wrangle Data
+
+```{r}
+## Import data 
+reed_checkouts <- read_excel("data-raw/Hauser_Circulation_Statistics_2018-2020.xlsx")
+## Rename variables
+colnames(reed_checkouts) <- c("Title", "Author", "Published", "Location", "Barcode", "Call_No",
+                              "Copies","Loaned", "Returned", "Patron")
+### Create new variables
+## Senior Thesis: A new boolean indicating checkout is a senior thesis
+reed_checkouts$Thesis <- reed_checkouts$Call_No=="	Thesis"
+## Remove unwanted columns
+reed_checkouts <- subset(reed_checkouts, select = -c(Barcode))#, Call_No))
+```
+## Clean Columns
+
+```{r}
+## COLUMN: Publication date ##
+## NOTE: Previously included copyright symbols, periods, and multiple dates
+reed_checkouts$Published <- gsub("[^0-9]", "", reed_checkouts$Published)
+reed_checkouts$Published <- substr(reed_checkouts$Published, 1, 4)
+
+## COLUMN: Title ##
+reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
+
+```
+
+```{r}
+# NOTES:
+# See issues with problematic years < 1809 and tackle individually perhaps
+reed_checkouts[which(reed_checkouts$Published < 1809),]
+```
+
+```{r}
+# Suggestion: Use factors to remove unwanted locations or split the dataset
+locations <- as.factor(reed_checkouts$Location)
+levels(locations)
+```
+
+```{r}
+patrons <- as.factor(reed_checkouts$Patron)
+levels(patrons)
+```
+
+```{r}
+classify_days <- function(dates){
+  days <- c("Sun","Mon","Tue","Wed","Thu","Fri","Sat")
+  my_class <- rep(NA, length(dates)) # Column classifying the day at a date
+  for(i in 1:length(days)){
+    idx <- grep(pattern = days[i], x = dates) # Matching indices from that classifier
+    my_class[idx] <- days[i] 
+  }
+  my_class
+}
+```
+
+```{r}
+dates <- rfc2822(anytime(reed_checkouts[,]$Loaned))
+date2 <- data.frame(dates) 
+#date2
+# if using dataframe, change length(dates) => ncol(dates) in classify_days
+classify_days(dates)
+```
+
+# Save and Export
+
+```{r}
+write_csv(reed_checkouts, "data/RCLC.csv")
+```
