@@ -26,5 +26,5 @@ devtools::install_github("Reed-Math241/pkgGrpn")
 ``` r
 library(RCLC)
 ```
-
-![Figure 1-1](graphics/example_2019.png "Figure 1-1"?raw=true)
+Here is an example of a picture:
+![Example](Graphics/example_2019.png)
