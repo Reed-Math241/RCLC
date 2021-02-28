@@ -8,16 +8,16 @@ library(usethis)
 #==========================
 #     IMPORT & WRANGLE
 #==========================
-# Import data
-reed_checkouts <- read_excel(path = "data-raw/Hauser_Circulation_Statistics_2018-2020.xlsx")
+# Import data 
+reed_checkouts <- read_excel("data-raw/Hauser_Circulation_Statistics_2018-2020.xlsx")
 ## Rename variables
 colnames(reed_checkouts) <- c("Title", "Author", "Published", "Location", "Barcode", "Call_No",
                               "Copies","Loaned", "Returned", "Patron")
 ### Create new variables
 ## Senior Thesis: A new boolean indicating checkout is a senior thesis
-reed_checkouts$Thesis <- reed_checkouts$Call_No=="	Thesis"
+reed_checkouts$Thesis <- reed_checkouts$Call_No=="Thesis"
 ## Remove unwanted columns
-reed_checkouts <- subset(reed_checkouts, select = -c(Barcode, Call_No))
+reed_checkouts <- subset(reed_checkouts, select = -c(Barcode))#, Call_No))
 
 #==========================
 #      CLEAN COLUMNS
