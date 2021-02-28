@@ -28,5 +28,5 @@ library(RCLC)
 ```
 Here is an example of a picture:
 
-![Example2019|512x397](Graphics/example_2019.png)
-![Example2020|512x397](Graphics/example_2020.png)
+![Example2019|250x397](Graphics/example_2019.png)
+![Example2020|250x397](Graphics/example_2020.png)
