@@ -27,4 +27,6 @@ devtools::install_github("Reed-Math241/pkgGrpn")
 library(RCLC)
 ```
 Here is an example of a picture:
-![Example](Graphics/example_2019.png)
+
+![Example2019](Graphics/example_2019.png =250x)
+![Example2020](Graphics/example_2020.png =250x)
