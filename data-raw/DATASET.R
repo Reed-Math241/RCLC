@@ -1,8 +1,9 @@
 
 # Require dependencies
-if(!require(tidyverse)){install.packages(tidyverse)}
+#if(!require(tidyverse)){install.packages(tidyverse)}
 # Load libraries
 library(tidyverse)
+library(readxl)
 library(usethis)
 
 #==========================
@@ -27,6 +28,12 @@ reed_checkouts$Published <- gsub("[^0-9]", "", reed_checkouts$Published)
 reed_checkouts$Published <- substr(reed_checkouts$Published, 1, 4)
 # Clean title column
 reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
+
+#==============================
+#       PYTHON SCRIPT
+#==============================
+# Use reticulate to run python script cleaning author names
+
 
 #==============================
 #       EXPORT DATASET
