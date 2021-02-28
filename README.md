@@ -9,11 +9,11 @@
 
 <!-- badges: end -->
 
-The goal of RCLC (Reed College Library Checkout)
+The goal of RCLC (Reed College Library Checkout) is to provide an easy-to-use and insightful dataset with clear information about book checkouts from the Hauser Memorial Library from 2018 to 2020. Each observation in this data set corresponds to a borrow!
 
 ## Installation
 
-The development version of Reed Library Checkout is available from
+The development version of Reed College Library Checkout is available from
 [GitHub](https://github.com/Reed-Math241/pkgGrpn) with:
 
 ``` r
@@ -22,11 +22,11 @@ devtools::install_github("Reed-Math241/pkgGrpn")
 ```
 
 ## Example
-
+To import our dataset, just run:
 ``` r
 library(RCLC)
 ```
-Here is an example of a picture:
+Here is an example of our data in action! This is a heatmap (over a calendar) of checkout data by day. Can you think of why 2020 looks so different from 2019? 🤔
 
 ![Example2019|250x397](Graphics/example_2019.png)
 ![Example2020|250x397](Graphics/example_2020.png)
