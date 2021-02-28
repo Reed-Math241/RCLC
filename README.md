@@ -3,7 +3,7 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# RLC
+# RCLC
 
 <!-- badges: start -->
 
@@ -28,6 +28,5 @@ library(RCLC)
 ```
 Here is an example of a picture:
 
-![Example2019](Graphics/example_2019.png =250x250)
-
-![Example2020](Graphics/example_2020.png =250x250)
+![Example2019](Graphics/example_2019.png)
+![Example2020](Graphics/example_2020.png)
