@@ -28,5 +28,8 @@ library(RCLC)
 ```
 Here is an example of our data in action! This is a heatmap (over a calendar) of checkout data by day. Can you think of why 2020 looks so different from 2019? 🤔
 
-![Example2019|250x397](Graphics/example_2019.png)
-![Example2020|250x397](Graphics/example_2020.png)
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](Graphics/example_2019.png)  |  ![](Graphics/example_2020.png)
+
+
