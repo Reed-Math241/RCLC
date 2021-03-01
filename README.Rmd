@@ -38,7 +38,7 @@ To import our dataset, just run:
 ``` r
 library(RCLC)
 
-checkouts <- RCLC::reed_checkouts
+checkouts <- RCLC::checkouts
 
 ```
 Here is an example of our data in action! This is a heatmap (over a calendar) of checkout data by day. Can you think of why 2020 looks so different from 2019?

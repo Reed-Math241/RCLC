@@ -30,10 +30,10 @@ LazyData: true
 URL: https://github.com/Reed-Math241/pkgGrpn
 BugReports: https://github.com/Reed-Math241/pkgGrpn/issues
 Imports: 
-    dplyr,
     tidyr
 Suggests:
     knitr,
+    dplyr,
     reticulate,
     rmarkdown,
     openair,

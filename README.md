@@ -29,7 +29,7 @@ To import our dataset, just run:
 ``` r
 library(RCLC)
 
-checkouts <- RCLC::reed_checkouts
+checkouts <- RCLC::checkouts
 
 ```
 
