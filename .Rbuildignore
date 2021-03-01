@@ -1,6 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-.gitignore
-dev
-graphics
+^\..gitignore$
+^\dev$
+^\Graphics$
 ^\.github$
+^\.builds$

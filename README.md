@@ -28,6 +28,9 @@ To import our dataset, just run:
 
 ``` r
 library(RCLC)
+
+checkouts <- RCLC::reed_checkouts
+
 ```
 
 Here is an example of our data in action! This is a heatmap (over a
