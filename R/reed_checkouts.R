@@ -4,7 +4,7 @@
 #' 
 #' @docType data
 #' @name reed_checkouts
-#' @usage data(reed_checkouts)
+#' @usage reed_checkouts
 #' @format  A data frame with Reed Collge Library checkout data
 #' \itemize{
 #' \item{\code{Title}}{ The title of the book loaned}

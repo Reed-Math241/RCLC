@@ -36,4 +36,4 @@ reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
 #      TEMPORARY EXPORT
 #==============================
 # Write a csv file for further interim wrangling
-write_csv(reed_checkouts, "data/RCLC.csv")
+#write_csv(reed_checkouts, "../data/RCLC.csv")
