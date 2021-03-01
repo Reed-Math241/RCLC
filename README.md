@@ -35,7 +35,7 @@ checkouts <- RCLC::reed_checkouts
 
 Here is an example of our data in action! This is a heatmap (over a
 calendar) of checkout data by day. Can you think of why 2020 looks so
-different from 2019? 🤔
+different from 2019?
 
 |     Checkouts 2019 (Redux)     |     Checkouts 2020 (Redux)     |
 |:------------------------------:|:------------------------------:|
