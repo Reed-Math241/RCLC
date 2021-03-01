@@ -3,8 +3,8 @@
 #' Checkout data from the Reed College Library from 8/1/2018 to 7/30/20.  
 #' 
 #' @docType data
-#' @name checkouts
-#' @usage checkouts
+#' @name reed_checkouts
+#' @usage reed_checkouts
 #' @format  A data frame with Reed College Library checkout data
 #' \itemize{
 #' \item{\code{Title}}{ The title of the book loaned}
