@@ -8,7 +8,7 @@
 #' @format  A data frame with Reed College Library checkout data
 #' \itemize{
 #' \item{\code{Title}}{ The title of the book loaned}
-#' \item{\code{Author}}{ The author of the book and their birthdate}
+#' \item{\code{Author}}{ The author of the book}
 #' \item{\code{Publishing date}}{ The date book was published}
 #' \item{\code{Location}}{ The location of the library checkout/loan}
 #' \item{\code{Call_No}}{ Internal Reed Call number}
