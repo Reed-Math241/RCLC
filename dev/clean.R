@@ -13,7 +13,7 @@ library(readxl)
 #     IMPORT & WRANGLE
 #==========================
 ## Import data 
-reed_checkouts <- read_excel("dev/Hauser_Circulation_Statistics_2018-2020.xlsx")
+reed_checkouts <- read_excel("data-raw/Hauser_Circulation_Statistics_2018-2020.xlsx")
 ## Rename variables
 colnames(reed_checkouts) <- c("Title", "Author", "Published", "Location", "Barcode", "Call_No",
                               "Copies","Loaned", "Returned", "Patron")
@@ -36,4 +36,4 @@ reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
 #      TEMPORARY EXPORT
 #==============================
 # Write a csv file for further interim wrangling
-#write_csv(reed_checkouts, "../dev/RCLC.csv")
+#write_csv(reed_checkouts, "../data/RCLC.csv")

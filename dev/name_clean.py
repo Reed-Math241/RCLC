@@ -12,7 +12,7 @@ def clean_str(s0):
 def name_clean(authors):
   return [clean_str(mess) if mess == mess else "" for mess in authors] #applies to all values
 
-df = pd.read_csv("dev/RCLC.csv") #reads
+df = pd.read_csv("data/RCLC.csv") #reads
 df["Author"] = name_clean(df["Author"]) #applies
 
-df.to_csv("dev/RCLC.csv", encoding='utf-8', index=False) #writes
+df.to_csv("data/RCLC.csv", encoding='utf-8', index=False) #writes
