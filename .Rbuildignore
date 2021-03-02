@@ -4,3 +4,4 @@
 ^\dev$
 ^\Graphics$
 ^\.github$
+*.udpipe

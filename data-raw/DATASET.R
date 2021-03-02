@@ -5,6 +5,7 @@
 library(tidyverse)
 library(readxl)
 library(usethis)
+library(udpipe)
 
 #==========================
 #     IMPORT & WRANGLE
@@ -30,9 +31,25 @@ reed_checkouts$Published <- substr(reed_checkouts$Published, 1, 4)
 reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) #regex heckery
 
 #==============================
-#       PYTHON SCRIPT
+#       Author cleaning
 #==============================
-# Use reticulate to run python script cleaning author names
+# Use udpipe to clean author names
+
+udmodel <- udpipe_download_model(language = "english")
+udmodel <- udpipe_load_model(file = udmodel$file_model)
+
+authors <- udpipe_annotate(udmodel, unique(reed_checkouts$Author)) %>%
+  as.data.frame()  %>%
+  group_by(sentence) %>%
+  summarise(authors = paste(token[xpos=="NNP"], collapse = " "))
+  
+authors <- add_row(authors,
+                   sentence = "NO MATCH",
+                   authors = "",
+                   .before = 1)
+
+reed_checkouts$Author <- authors$authors[match(reed_checkouts$Author, authors$sentence, nomatch =1)] 
+
 
 
 #==============================
