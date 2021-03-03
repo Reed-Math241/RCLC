@@ -7,7 +7,6 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/Reed-Math241/pkgGrpn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/Reed-Math241/pkgGrpn/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
 
 The goal of RCLC (Reed College Library Checkout) is to provide an
