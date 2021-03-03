@@ -11,18 +11,17 @@ Authors@R:
               comment = c(ORCID = "0000-0002-2130-9256")),
       person( given = "Ali",
               family = "Taqi",
-              role =  c("aut", "cre"),
+              role =  c("aut"),
               email = "taqia@reed.edu"),
       person( given = "Lucas",
               family = "Yong",
-              role =  c("aut", "cre"),
-              email = "lucasyong@reed.edu")
+              role =  c("aut"),
+              email = "lucasyong@reed.edu"),
       person( given = "Mahria",
               family = "Lebow",
               role =  c("ctb"),
               email = "lebow@reed.edu")
               )
-Maintainer: Taylor Blair <tblair@reed.edu>
 Description: Check out data from the Reed College Library from 8/1/2018 to 7/30/20.  
 License: MIT + file LICENSE
 Encoding: UTF-8

@@ -1,9 +1,9 @@
 
-#==========================
-#    WRANGLING FUNCTION
-#==========================
+#===================================
+#    WRANGLING HELPER FUNCTION
+#===================================
 
-# Takes in a string of consecutive integers
+# Takes in a string of consecutive integers from collapsing the date column and parse it 
 .handleDATE <- function(date_str){
   str_len <- str_length(date_str)
   if(is.na(str_len)){NA} # Date has unknown decade or year
@@ -11,9 +11,34 @@
   else{.handleIMPROPERS(date_str)} # Date is improper, wrangle manually
 }
 
+#===================================
+#    ELEMENTARY HELPER FUNCTIONS
+#===================================
+
+# Returns the first n characters of a string
+.strHEAD <- function(str, first_n){
+  substr(str, start = 1, stop = first_n)
+}
+# Returns the last n characters of a string
+.strTAIL <- function(str, last_n){
+  l <- str_length(str) # Get length of string
+  substr(str, start = l - last_n + 1, stop = l)
+}
+
 #==========================
 #       CASE HANDLING
 #==========================
+
+# Handles improper year formats (with more or less than 4 numbers)
+.handleIMPROPERS <- function(date_str){
+  # Get length of date string
+  str_len <- str_length(date_str)
+  # Handle by common cases first
+  if(str_len == 2 || str_len == 3){.handlePARTIAL(date_str)} # Missing decade/year
+  else if(str_len == 6){.handleLEN6(date_str)} # Handle strings of length 6 (YYAA - BB)
+  else if(str_len == 8){.handleLEN8(date_str)} # Date is of imprecise range (YYYY - YYYY)
+  else{.handleUNCOMMON(date_str)} # Handle uncommon date formats
+}
 
 # Handles dates with either a missing year (YYYx) or missing decade (YYxx)
 .handlePARTIAL <- function(date_str){
@@ -41,17 +66,19 @@
 
 # Handles dates of format (XXXX-YYYY)
 .handleLEN8 <- function(date_str){
-  max_yr <- 2021
+  # If this function is called from other function, it may be a numeric
+  if(class(date_str) == "numeric"){date_str <- as.character(date_str)} 
   # Date is a range of dates, get years and process cases
   lw_yr <- as.numeric(.strHEAD(date_str, first_n = 4)); hi_yr <- as.numeric(.strTAIL(date_str, last_n = 4))
-  # Redundant or improper range (copyright label)
+  # Redundant or improper range (copyright label in the same year)
   if(lw_yr == hi_yr){paste(lw_yr, sep = "")}
-  # Improper ranges
+  # Improper range of dates (usually copyright dates)
   else if(lw_yr > hi_yr){
+    max_yr <- 2021 # Cannot exceed max year
     if(lw_yr < max_yr){paste(lw_yr, sep = "")}
     else{paste(hi_yr, sep = "")}
   }
-  # Proper range
+  # Proper range of dates
   else if(lw_yr < hi_yr){
     paste(lw_yr, hi_yr, sep = "-")
   }
@@ -59,54 +86,25 @@
 
 # Handles cases of messy formats
 .handleUNCOMMON <- function(date_str){
-  # Get length of date string
-  str_len <- str_length(date_str)
+  # Set useful parameters
+  str_len <- str_length(date_str) # Get length of date string
   max_yr <- 2021 # Maximum possible year
+  # Get the relevant substrings for handling the cases (improves code readability)
+  last2 <- as.numeric(.strTAIL(date_str, last_n = 2))
+  first4 <- as.numeric(.strHEAD(date_str, first_n = 4))
+  first8 <- as.numeric(.strHEAD(date_str, first_n = 8))
+  last8 <- as.numeric(.strTAIL(date_str, last_n = 8))
+  # Handle by case length manually
+  # Note: this wrangling was done specifically for this dataset.
+  # Please check the results of these wrangling functions if new improper dates are added.
   if(str_len == 5){
-    candidate <- as.numeric(paste("20", .strTAIL(date_str, last_n = 2), sep = ""))
+    candidate <- as.numeric(paste("20", last2, sep = ""))
     if(candidate < max_yr){paste(candidate)}
-    else{.strHEAD(date_str, first_n = 4)}
+    else{paste(first4)}
   }
-  else if(str_len == 10){
-    first4 <- as.numeric(.strHEAD(date_str, first_n = 4))
-    paste(first4)
-  }
-  else if(str_len == 7 || str_len == 11){
-    first4 <- as.numeric(.strHEAD(date_str, first_n = 4))
-    last8 <- .strTAIL(date_str, last_n = 8)
-    if(first4 > max_yr){.handleLEN8(last8)} else{paste(first4)}
-  }
-  else if(str_len == 12){
-    first4 <- as.numeric(substr(date_str, start = 1, stop = 4))
-    last8 <- .strTAIL(date_str, last_n = 8)
-    if(first4 > max_yr){.handleLEN8(last8)} else{paste(first4)}
-  }
-  else if(str_len == 13 || str_len == 16){.handleLEN8(.strHEAD(date_str, first_n = 8))}
+  else if(str_len == 10){paste(first4)}
+  else if(str_len %in% c(7, 11, 12)){if(first4 > max_yr){.handleLEN8(last8)} else{paste(first4)}}
+  else if(str_len == 13 || str_len == 16){.handleLEN8(first8)}
   else{date_str} # Edge cases
 }
 
-
-
-.handleIMPROPERS <- function(date_str){
-  # Get length of date string
-  str_len <- str_length(date_str)
-  # Handle by case
-  if(str_len == 2 || str_len == 3){.handlePARTIAL(date_str)} # Missing decade/year
-  else if(str_len == 6){.handleLEN6(date_str)} # Handle strings of length 6 (19XX - 19YY)
-  else if(str_len == 8){.handleLEN8(date_str)} # Date is imprecise range
-  else{.handleUNCOMMON(date_str)} # Handle uncommon date formats
-}
-
-#==========================
-#     HELPER FUNCTIONS
-#==========================
-
-# Returns string with the first n characters
-.strHEAD <- function(str, first_n){
-  substr(str, start = 1, stop = first_n)
-}
-# Returns string with the last n characters
-.strTAIL <- function(str, last_n){
-  l <- str_length(str) # Get length of string
-  substr(str, start = l - last_n + 1, stop = l)
-}

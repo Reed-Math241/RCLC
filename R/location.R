@@ -1,6 +1,6 @@
 
 #=================================================================================#
-#                              EIGENVALUE DISPERSION
+#                              GET_CHECKOUTS FUNCTION
 #=================================================================================#
 
 #' @title Obtain the checkout data matching a given location substring
@@ -21,7 +21,8 @@
 #' # Get musical score checkouts
 #' score_checkouts <- get_checkouts(location = "score")
 #' 
-get_checkouts <- function(location){
+get_checkouts <- function(location = NA){
+  if(is.na(location)){return(reed_checkouts)} # Default value
   if(class(location) != "character"){stop("Please input a string with a valid location factor substring.")}
   # Get location factor vector
   locs_vec <- as.character(levels(as.factor(reed_checkouts$Location)))

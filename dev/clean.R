@@ -1,12 +1,9 @@
 
 # Copy and paste final code onto DATASET.R
-
-# Require dependencies
-if(!require(tidyverse)){install.packages(tidyverse)}
 # Load libraries
 library(tidyverse)
 library(readxl)
-source("../R/pubdate.R")
+source("../R/pubDate.R")
 
 #==========================
 #     IMPORT & WRANGLE
