@@ -13,6 +13,13 @@ source("../R/pubDate.R")
 #checkouts <- read_csv("RCLC.csv")
 ```
 
+
+```{r}
+source("clean.R")
+checkouts <- read_csv("RCLC.csv")
+```
+
+
 ```{r}
 ## Import data 
 reed_checkouts <- read_excel(path = "Hauser_Circulation_Statistics_2018-2020.xlsx")
@@ -24,6 +31,7 @@ reed_checkouts$PubDate <- gsub("[^0-9]", "", reed_checkouts$PubDate)
 reed_checkouts$PubDate <- purrr::map_chr(reed_checkouts$PubDate, .handleDATE)
 # Create date range column
 reed_checkouts$PubDateRange <- reed_checkouts$PubDate
+
 # Handle proper (numeric) publishing dates
 range_dates <- which(str_length(reed_checkouts$PubDate) != 4)
 reed_checkouts$PubDate[range_dates] <- NA_character_ # Set date ranges to NA in numeric column (to coerce into numeric)

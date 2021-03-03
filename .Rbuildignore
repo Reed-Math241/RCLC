@@ -4,3 +4,7 @@
 ^\dev$
 ^\Graphics$
 ^\.github$
+data-raw
+graphics
+dev
+README.Rmd

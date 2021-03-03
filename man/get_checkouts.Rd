@@ -4,7 +4,7 @@
 \alias{get_checkouts}
 \title{Obtain the checkout data matching a given location substring}
 \usage{
-get_checkouts(location)
+get_checkouts(location = NA)
 }
 \arguments{
 \item{location}{A location substring that filters the reed_checkouts with a location string containing the substring.}

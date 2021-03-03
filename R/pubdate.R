@@ -5,7 +5,7 @@
 
 # Takes in a string of consecutive integers from collapsing the date column and parse it 
 .handleDATE <- function(date_str){
-  str_len <- str_length(date_str)
+  str_len <- stringr::str_length(date_str)
   if(is.na(str_len)){NA} # Date has unknown decade or year
   else if(str_len == 4){substr(date_str, 1, 4)} # Date is of proper form
   else{.handleIMPROPERS(date_str)} # Date is improper, wrangle manually
@@ -21,7 +21,7 @@
 }
 # Returns the last n characters of a string
 .strTAIL <- function(str, last_n){
-  l <- str_length(str) # Get length of string
+  l <- stringr::str_length(str) # Get length of string
   substr(str, start = l - last_n + 1, stop = l)
 }
 
@@ -32,7 +32,7 @@
 # Handles improper year formats (with more or less than 4 numbers)
 .handleIMPROPERS <- function(date_str){
   # Get length of date string
-  str_len <- str_length(date_str)
+  str_len <- stringr::str_length(date_str)
   # Handle by common cases first
   if(str_len == 2 || str_len == 3){.handlePARTIAL(date_str)} # Missing decade/year
   else if(str_len == 6){.handleLEN6(date_str)} # Handle strings of length 6 (YYAA - BB)
@@ -42,7 +42,7 @@
 
 # Handles dates with either a missing year (YYYx) or missing decade (YYxx)
 .handlePARTIAL <- function(date_str){
-  str_len <- str_length(date_str)
+  str_len <- stringr::str_length(date_str)
   # Missing year
   if(str_len == 2){paste(paste(date_str,c("00","99"),sep=""), collapse = "-")}
   # Missing decade
@@ -87,7 +87,7 @@
 # Handles cases of messy formats
 .handleUNCOMMON <- function(date_str){
   # Set useful parameters
-  str_len <- str_length(date_str) # Get length of date string
+  str_len <- stringr::str_length(date_str) # Get length of date string
   max_yr <- 2021 # Maximum possible year
   # Get the relevant substrings for handling the cases (improves code readability)
   last2 <- as.numeric(.strTAIL(date_str, last_n = 2))

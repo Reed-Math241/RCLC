@@ -29,15 +29,13 @@ LazyData: true
 URL: https://github.com/Reed-Math241/pkgGrpn
 BugReports: https://github.com/Reed-Math241/pkgGrpn/issues
 Imports: 
-    tidyr
+    tidyr,
+    stringr,
+    dplyr,
+    readxl
 Suggests:
     knitr,
-    udpipe,
-    dplyr,
-    reticulate,
-    rmarkdown,
-    openair,
-    readxl
+    rmarkdown
 Depends: 
     R (>= 2.10)
 RoxygenNote: 7.1.1
