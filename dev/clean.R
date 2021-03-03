@@ -5,7 +5,6 @@
 if(!require(tidyverse)){install.packages(tidyverse)}
 # Load libraries
 library(tidyverse)
-library(reticulate)
 library(readxl)
 source("../R/pubdate.R")
 

@@ -1,0 +1,13 @@
+---
+title: "Untitled"
+author: "Ali Taqi"
+date: "3/2/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+source("clean.R")
+
+```
+

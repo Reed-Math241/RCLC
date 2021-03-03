@@ -1,5 +1,26 @@
 
-# Obtain the checkout data matching a given location substring
+#=================================================================================#
+#                              EIGENVALUE DISPERSION
+#=================================================================================#
+
+#' @title Obtain the checkout data matching a given location substring
+#'
+#' @description Returns a filtered reed_checkouts dataset matching that location substring
+#'
+#' @param location A location substring that filters the reed_checkouts with a location string containing the substring.
+#'
+#' @return A checkouts data frame.
+#' @examples
+#'
+#' # Get PARC checkouts
+#' PARC_checkouts <- get_checkouts(location = "PARC")
+#'
+#' # Get IMC checkouts
+#' IMC_checkouts <- get_checkouts(location = "IMC")
+#' 
+#' # Get musical score checkouts
+#' score_checkouts <- get_checkouts(location = "score")
+#' 
 get_checkouts <- function(location){
   if(class(location) != "character"){stop("Please input a string with a valid location factor substring.")}
   # Get location factor vector
