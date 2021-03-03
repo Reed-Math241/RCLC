@@ -69,4 +69,4 @@ different from 2019?
 
 |     Checkouts 2019 (Redux)     |     Checkouts 2020 (Redux)     |
 |:------------------------------:|:------------------------------:|
-| ![](Graphics/example_2019.png) | ![](Graphics/example_2020.png) |
+| ![](graphics/example_2019.png) | ![](graphics/example_2020.png) |
