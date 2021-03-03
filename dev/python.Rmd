@@ -9,19 +9,67 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(RCLC)
-library(reticulate)
 ```
 
 ```{r}
-data(reed_checkouts)
+source("clean.R")
+reed_checkouts <- read_csv("RCLC.csv")
 ```
 
 ```{r}
-reed_checkouts
+PARC_checkouts <- get_checkouts("PARC")
+#pubs <- reed_checkouts$Published
+#improper <- which(is.na(as.numeric(pubs))) # Get improper dates; those which become NA when coerced
+#mean(is.na(as.numeric(pubs)))
 ```
 
 ```{r}
-#source_python("name_clean.py")
-reticulate::py_eval()
+#locs_fac <- as.factor(reed_checkouts$Location)
+#levels(locs_fac)
+```
+
+```{r}
+#checkouts_in(list_places[[1]])
+#PARC_checkouts <- reed_checkouts[which(reed_checkouts$Location %in% list_places[[1]]),]
+#IMC_checkouts <- reed_checkouts[which(reed_checkouts$Location %in% list_places[[2]]),]
+```
+
+```{r}
+#reed_checkouts$Published <- gsub("[^0-9]", "", reed_checkouts$Published)
+#step0 <- reed2$Published
+#step1 <- gsub("[^0-9]", "", step0)
+#step2 <- map_chr(step1, .handleDATE)
+#reed_checkouts$Published <- step2
+```
+
+```{r}
+#step2 <- substr(step1, start = 1, stop = 4)
+#steps <- cbind(step0, step1, step2)
+#reed_checkouts$Published <- substr(reed_checkouts$Published, 1, 4)
+
+#step1b <- map_chr(step1, .handleDATE)
+#strlen <- map_dbl(step1, str_length)
+#stepsP <- data.frame(cbind(step0, step1, step1b, strlen))
+
+#improper <- step1[which(str_length(step1) != 4)]
+#steps <- data.frame(steps)
+#case_when((str_length(step1) == 4) ~ T, TRUE ~ F)
+#steps$proper <- case_when((str_length(step1) == 4) ~ T, TRUE ~ F)
+#improper <- filter(steps, proper == FALSE)
+```
+
+```{r}
+#beg <- Sys.time()
+#locs_fac <- as.factor(reed_checkouts$Location)
+#locs <- as.character(levels(locs_fac))
+#.LOCS <- function(string){locs[grep(pattern = string, x = locs)]}
+#places <- c("Book","PARC","IMC", "Reserve", "Scores")
+#places <- c("PARC","IMC","Reserves")
+#list_places <- map(.x = places, .f = .LOCS)
+#list_places
+#checkouts_in <- function(places){reed_checkouts[which(reed_checkouts$Location %in% places),]}
+#df_places <- map(list_places, checkouts_in)
+#end <- Sys.time()
+#end - beg
 ```
 
