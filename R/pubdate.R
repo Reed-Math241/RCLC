@@ -105,6 +105,6 @@
   else if(str_len == 10){paste(first4)}
   else if(str_len %in% c(7, 11, 12)){if(first4 > max_yr){.handleLEN8(last8)} else{paste(first4)}}
   else if(str_len == 13 || str_len == 16){.handleLEN8(first8)}
-  else{date_str} # Edge cases
+  else{NA} # Edge cases
 }
 

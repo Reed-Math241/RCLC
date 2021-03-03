@@ -7,33 +7,30 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(RCLC)
+#library(RCLC)
+source("../R/pubDate.R")
 #source("clean.R")
 #checkouts <- read_csv("RCLC.csv")
 ```
 
 ```{r}
 ## Import data 
-reed_checkouts <- read_excel(path = "Hauser_Circulation_Statistics_2018-2020.xlsx") 
+reed_checkouts <- read_excel(path = "Hauser_Circulation_Statistics_2018-2020.xlsx")
 ## Rename variables
 colnames(reed_checkouts) <- c("Title", "Author", "PubDate", "Location", "Barcode", "Call_No", "Copies", "Loaned", "Returned", "Patron")
 # Clean publication date column (Remove copyright symbols, periods, and collapse multiple dates)
 reed_checkouts$PubDate <- gsub("[^0-9]", "", reed_checkouts$PubDate)
-# Use helper function to 
+# Use helper function to clean publishing date/date ranges
 reed_checkouts$PubDate <- purrr::map_chr(reed_checkouts$PubDate, .handleDATE)
-```
-
-```{r}
 # Create date range column
 reed_checkouts$PubDateRange <- reed_checkouts$PubDate
-# Make non-tentative publishing dates numeric
-reed_checkouts$PubDate <- as.numeric(reed_checkouts$PubDate)
-# Get rows with uncertain publishing dates
-#certain_dates <- which(!is.na(as.numeric(reed_checkouts$PubDate)))
-certain_dates <- which(str_length(reed_checkouts$PubDate) != 4)
-certain_dates <- which(is.na(reed_checkouts$PubDate))
-# Make certain dates in range column NA
-#reed_checkouts$PubDateRange[certain_dates] <- NA
+# Handle proper (numeric) publishing dates
+range_dates <- which(str_length(reed_checkouts$PubDate) != 4)
+reed_checkouts$PubDate[range_dates] <- NA_character_ # Set date ranges to NA in numeric column (to coerce into numeric)
+reed_checkouts$PubDate <- as.numeric(reed_checkouts$PubDate) # Coerce numeric
+# Hand improper (character) date ranges
+proper_dates <- which(!is.na(reed_checkouts$PubDate)) # Set proper dates to NA in range column (to avoid repetition)
+reed_checkouts$PubDateRange[proper_dates] <- NA # Distinguish range and proper date columns 
 # Reorder columns (moving PublDate_Range next to PublDate)
 reed_checkouts <- reed_checkouts[,c(1,2,3,11,4,5,6,7,8,9,10)]
 ```

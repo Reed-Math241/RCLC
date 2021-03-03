@@ -32,12 +32,14 @@ reed_checkouts$PubDate <- gsub("[^0-9]", "", reed_checkouts$PubDate)
 reed_checkouts$PubDate <- purrr::map_chr(reed_checkouts$PubDate, .handleDATE)
 # Create date range column
 reed_checkouts$PubDateRange <- reed_checkouts$PubDate
-# Make non-tentative publishing dates numeric
-reed_checkouts$PubDate <- as.numeric(reed_checkouts$PubDate)
-# Get rows with uncertain publishing dates
-certain_dates <- which(!is.na(reed_checkouts$PubDate))
-# Make certain dates in range column NA
-#reed_checkouts$PubDateRange[certain_dates] <- NA
+
+# Handle proper (numeric) publishing dates
+range_dates <- which(str_length(reed_checkouts$PubDate) != 4)
+reed_checkouts$PubDate[range_dates] <- NA_character_ # Set date ranges to NA in numeric column (to coerce into numeric)
+reed_checkouts$PubDate <- as.numeric(reed_checkouts$PubDate) # Coerce numeric
+# Hand improper (character) date ranges
+proper_dates <- which(!is.na(reed_checkouts$PubDate)) # Set proper dates to NA in range column (to avoid repetition)
+reed_checkouts$PubDateRange[proper_dates] <- NA # Distinguish range and proper date columns 
 
 # Clean title column
 reed_checkouts$Title <- gsub('[/]{1}$', '', reed_checkouts$Title) # Regex heckery

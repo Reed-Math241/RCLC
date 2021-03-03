@@ -29,9 +29,9 @@ reed_checkouts[which(is.na(reed_checkouts$Thesis)), "Thesis"] <- FALSE
 
 # Clean publication date column (Remove copyright symbols, periods, and collapse multiple dates)
 reed_checkouts$PubDate <- gsub("[^0-9]", "", reed_checkouts$PubDate)
-# Use helper function to 
+# Use helper function to clean publishing dates/date ranges 
 reed_checkouts$PubDate <- purrr::map_chr(reed_checkouts$PubDate, .handleDATE)
-# Create date range column
+# Copy date range column
 reed_checkouts$PubDateRange <- reed_checkouts$PubDate
 # Make non-tentative publishing dates numeric
 reed_checkouts$PubDate <- as.numeric(reed_checkouts$PubDate)
