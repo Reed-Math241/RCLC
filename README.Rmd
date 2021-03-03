@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of RCLC (Reed College Library Checkout) is to provide an easy-to-use and insightful dataset with clear information about book checkouts from the Hauser Memorial Library from 2018 to 2020. Each observation in this data set corresponds to a borrow!
+The goal of RCLC (Reed College Library Checkout) is to provide an easy-to-use and insightful dataset with clear information about book checkouts from the Hauser Memorial Library from 2018 to 2020. Each observation in this data set corresponds to a checkout!
 
 ## Installation
 
@@ -43,11 +43,15 @@ checkouts <- RCLC::reed_checkouts
 # OR
 
 checkouts <- reed_checkouts
-
-
 ```
+
 Here is an example of our data in action! This is a heatmap (over a calendar) of checkout data by day. Can you think of why 2020 looks so different from 2019?
 
 Checkouts 2019 (Redux)          |  Checkouts 2020 (Redux)
 :------------------------------:|:-------------------------------:
 ![](Graphics/example_2019.png)  |  ![](Graphics/example_2020.png)
+
+Each checkout comes from one of three locations: "PARC", "IMC", and "reed". To get the subset of checkouts from a single location, simply use the following function:
+```{r}
+get_checkouts(location = "PARC")
+```
