@@ -28,22 +28,23 @@ The goal of RCLC (Reed College Library Checkout) is to provide an easy-to-use an
 The development version of Reed College Library Checkout is available from
 [GitHub](https://github.com/Reed-Math241/pkgGrpn) with:
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("Reed-Math241/pkgGrpn")
 ```
 
 ## Example
 To import our dataset, just run:
-``` r
+```{r}
 library(RCLC)
 # Sourcing the data directly from the package
 checkouts <- reed_checkouts # Also possible to use RCLC::reed_checkouts
-
-# OR #
-
+```
+Or alternatively, use the built-in `get_checkouts` function:
+```{r}
+library(RCLC)
 # Using the package function
-checkouts <- get_checkouts() # Default value returns entire dataset
+checkouts <- get_checkouts() # Default value returns entire dataset, no argument needed
 ```
 
 Here is an example of our data in action! This is a heatmap (over a calendar) of checkout data by day. Can you think of why 2020 looks so different from 2019?

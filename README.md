@@ -30,11 +30,14 @@ To import our dataset, just run:
 library(RCLC)
 # Sourcing the data directly from the package
 checkouts <- reed_checkouts # Also possible to use RCLC::reed_checkouts
+```
 
-# OR #
+Or alternatively, use the built-in `get_checkouts` function:
 
+``` r
+library(RCLC)
 # Using the package function
-checkouts <- get_checkouts() # Default value returns entire dataset
+checkouts <- get_checkouts() # Default value returns entire dataset, no argument needed
 ```
 
 Here is an example of our data in action! This is a heatmap (over a
