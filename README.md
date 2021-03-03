@@ -74,7 +74,6 @@ library(dplyr)
 library(openair)
 
 reed_checkouts %>%
-  mutate(Loaned = as.Date(Loaned,"%y-%m-%d")) %>%
   group_by(Loaned) %>%
   summarise(checkouts = n()) %>%
   rename(date=Loaned) %>%
@@ -91,6 +90,6 @@ reed_checkouts %>%
 
 Can you think of why 2020 looks so different from 2019? 🤔
 
-|     Checkouts 2019 (Redux)     |     Checkouts 2020 (Redux)     |
-| :----------------------------: | :----------------------------: |
-| ![](graphics/example_2019.png) | ![](graphics/example_2020.png) |
+|      Checkouts 2019 (Redux)       |      Checkouts 2020 (Redux)       |
+| :-------------------------------: | :-------------------------------: |
+| ![](man/figures/example_2019.png) | ![](man/figures/example_2020.png) |
