@@ -18,8 +18,7 @@ books <- reed_checkouts %>%
           summarise(count = n()) %>%
           ggplot(aes(Loaned, count)) +
           geom_col(fill="#000000") +
-          theme_void() +
-          title("Reed College Library Checkout")
+          theme_void()
 
 books
 
@@ -27,7 +26,7 @@ books
 
 sticker(books,
         package="RCLC",
-        p_family = "play",
+        p_family = "Play",
         s_x = 1,
         s_width = 1.5,
         s_height =0.5 , 
@@ -35,6 +34,6 @@ sticker(books,
         url = "https://github.com/Reed-Math241/pkgGrpn", 
         spotlight = FALSE,
         u_color = "white", u_size = 1,
-        u_family = "noto",
+        u_family = "Noto",
         h_fill="#A70E16", h_color="grey",
         filename="man/figures/logo.png")

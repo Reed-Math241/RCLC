@@ -3,11 +3,11 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# RCLC
+# RCLC <img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/Reed-Math241/pkgGrpn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/Reed-Math241/pkgGrpn/actions/workflows/check-standard.yaml)
 
+[![R-CMD-check](https://github.com/Reed-Math241/pkgGrpn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/Reed-Math241/pkgGrpn/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
 
 The goal of RCLC (Reed College Library Checkout) is to provide an
