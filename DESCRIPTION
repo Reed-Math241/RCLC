@@ -32,7 +32,8 @@ Imports:
     tidyr,
     stringr,
     dplyr,
-    readxl
+    readxl,
+    purrr
 Suggests:
     knitr,
     rmarkdown

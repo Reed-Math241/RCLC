@@ -2,7 +2,7 @@
 % Please edit documentation in R/location.R
 \name{get_checkouts}
 \alias{get_checkouts}
-\title{Obtain the checkout data matching a given location substring}
+\title{Obtain checkout data matching a given location substring}
 \usage{
 get_checkouts(location = NA)
 }
@@ -10,12 +10,14 @@ get_checkouts(location = NA)
 \item{location}{A location substring that filters the reed_checkouts with a location string containing the substring.}
 }
 \value{
-A checkouts data frame.
+A checkouts dataframe.
 }
 \description{
-Returns a filtered reed_checkouts dataset matching that location substring
+Returns a filtered reed_checkouts dataset matching a location substring
 }
 \examples{
+# Get original dataset
+reed_checkouts <- get_checkouts()
 
 # Get PARC checkouts
 PARC_checkouts <- get_checkouts(location = "PARC")

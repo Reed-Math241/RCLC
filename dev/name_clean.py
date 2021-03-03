@@ -1,9 +1,10 @@
 import nltk
 import pandas as pd
 
+# Experimental python script for wrangling author names
+
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
-
 
 def clean_str(s0):
   tagged = nltk.pos_tag(nltk.word_tokenize(s0)) #Tags parts of speech
