@@ -1,18 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
 # RCLC <img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The goal of RCLC (Reed College Library Checkout) is to provide an
 easy-to-use and insightful dataset with clear information about book
 checkouts from the Hauser Memorial Library from 2018 to 2020. Each
-observation in this data set corresponds to a checkout\!
+observation in this data set corresponds to a checkout!
 
 ## Installation
 
@@ -53,7 +51,7 @@ PARC_checkouts <- get_checkouts(location = "PARC")
 IMC_checkouts <- get_checkouts(location = "IMC")
 ```
 
-The `get_checkouts` function is versatile\! You could also query
+The `get_checkouts` function is versatile! You could also query
 substrings of checkout locations to get various filterings of the
 checkout data. Consider the following code, where the user obtains
 musical score checkouts:
@@ -65,7 +63,7 @@ score_checkouts <- get_checkouts(location = "Score")
 
 ## Example
 
-Here is an example of our data in action\! This is a heatmap (over a
+Here is an example of our data in action! This is a heatmap (over a
 calendar) of checkout data by day in 2019.
 
 ``` r
@@ -83,12 +81,12 @@ reed_checkouts %>%
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
------
+------------------------------------------------------------------------
 
 ## 2019 v. 2020
 
 Can you think of why 2020 looks so different from 2019? 🤔
 
 |      Checkouts 2019 (Redux)       |      Checkouts 2020 (Redux)       |
-| :-------------------------------: | :-------------------------------: |
+|:---------------------------------:|:---------------------------------:|
 | ![](man/figures/example_2019.png) | ![](man/figures/example_2020.png) |
