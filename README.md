@@ -22,7 +22,7 @@ from [GitHub](https://github.com/Reed-Math241/pkgGrpn) with:
 devtools::install_github("Reed-Math241/pkgGrpn")
 ```
 
-## Example
+## Usage
 
 To import our dataset, just run:
 
@@ -40,17 +40,9 @@ library(RCLC)
 checkouts <- get_checkouts() # Default value returns entire dataset, no argument needed
 ```
 
-Here is an example of our data in action! This is a heatmap (over a
-calendar) of checkout data by day. Can you think of why 2020 looks so
-different from 2019?
-
-|     Checkouts 2019 (Redux)     |     Checkouts 2020 (Redux)     |
-|:------------------------------:|:------------------------------:|
-| ![](Graphics/example_2019.png) | ![](Graphics/example_2020.png) |
-
 The three facilities in which Reedies could checkout resources are the
 IMC, PARC, and the Hauser Library. To get the checkouts data for the IMC
-or the PARC, simply use the following function:
+or the PARC, you may use the `get_checkouts` function as such:
 
 ``` r
 # Get PARC checkout data
@@ -68,3 +60,13 @@ musical score checkouts:
 # Get musical score checkout data
 score_checkouts <- RCLC::get_checkouts(location = "Score")
 ```
+
+## Example
+
+Here is an example of our data in action! This is a heatmap (over a
+calendar) of checkout data by day. Can you think of why 2020 looks so
+different from 2019?
+
+|     Checkouts 2019 (Redux)     |     Checkouts 2020 (Redux)     |
+|:------------------------------:|:------------------------------:|
+| ![](Graphics/example_2019.png) | ![](Graphics/example_2020.png) |
