@@ -33,8 +33,7 @@ Imports:
     stringr,
     dplyr,
     readxl,
-    purrr,
-    openair
+    purrr
 Suggests:
     knitr,
     rmarkdown

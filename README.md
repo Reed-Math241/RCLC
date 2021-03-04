@@ -7,8 +7,9 @@
 
 The goal of RCLC (Reed College Library Checkout) is to provide an
 easy-to-use and insightful dataset with clear information about book
-checkouts from the Hauser Memorial Library from 2018 to 2020. Each
-observation in this data set corresponds to a checkout\!
+checkouts from the Reed Hauser Memorial Library as well as the PARC
+library from 2018 to 2020. Each observation in this data set corresponds
+to a checkout\!
 
 ## Installation
 
