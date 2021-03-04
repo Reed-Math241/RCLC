@@ -21,7 +21,7 @@
 #' IMC_checkouts <- get_checkouts(location = "IMC")
 #' 
 #' # Get musical score checkouts
-#' score_checkouts <- get_checkouts(location = "score")
+#' score_checkouts <- get_checkouts(location = "Score")
 #' 
 get_checkouts <- function(location = NA){
   if(is.na(location)){return(RCLC::reed_checkouts)} # Default value

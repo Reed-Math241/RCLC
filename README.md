@@ -7,8 +7,9 @@
 
 The goal of RCLC (Reed College Library Checkout) is to provide an
 easy-to-use and insightful dataset with clear information about book
-checkouts from the Hauser Memorial Library from 2018 to 2020. Each
-observation in this data set corresponds to a checkout\!
+checkouts from the Reed Hauser Memorial Library as well as the PARC
+library from 2018 to 2020. Each observation in this data set corresponds
+to a checkout\!
 
 ## Installation
 
@@ -30,20 +31,14 @@ library(RCLC)
 checkouts <- reed_checkouts # Also possible to use RCLC::reed_checkouts
 ```
 
-Alternatively, the built-in `get_checkouts` function is analogous to
-`reed_checkouts`:
-
-``` r
-library(RCLC)
-# Using the package function
-checkouts <- get_checkouts() # Default value returns entire dataset, no argument needed
-```
-
 The three facilities in which Reedies could checkout resources are the
 IMC, PARC, and the Hauser Library. To get the checkouts data for the IMC
 or the PARC, you may use the `get_checkouts` function as such:
 
 ``` r
+# Analogous to `reed_checkouts
+checkouts <- get_checkouts() # Default value returns entire dataset, no argument needed
+
 # Get PARC checkout data
 PARC_checkouts <- get_checkouts(location = "PARC")
 # Get IMC checkout data
@@ -87,7 +82,7 @@ calendarPlot(filtered,
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ``` r
 calendarPlot(filtered,
@@ -98,4 +93,4 @@ calendarPlot(filtered,
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
