@@ -1,8 +1,4 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-<!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
-
 # RCLC <img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
@@ -20,8 +16,8 @@ The development version of Reed College Library Checkout is available
 from [GitHub](https://github.com/Reed-Math241/pkgGrpn) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("Reed-Math241/pkgGrpn")
+library(devtools)
+install_github("Reed-Math241/pkgGrpn")
 ```
 
 ## Usage
@@ -34,7 +30,8 @@ library(RCLC)
 checkouts <- reed_checkouts # Also possible to use RCLC::reed_checkouts
 ```
 
-Or alternatively, use the built-in `get_checkouts` function:
+Alternatively, the built-in `get_checkouts` function is analogous to
+`reed_checkouts`:
 
 ``` r
 library(RCLC)
@@ -66,30 +63,12 @@ score_checkouts <- get_checkouts(location = "Score")
 ## Example
 
 Here is an example of our data in action\! This is a heatmap (over a
-calendar) of checkout data by day in 2019.
+calendar) of checkout data by day in 2019 v. 2020.
 
 ``` r
-library(dplyr)
 library(openair)
+library(dplyr)
 
-reed_checkouts %>%
-  group_by(Loaned) %>%
-  summarise(checkouts = n()) %>%
-  rename(date=Loaned) %>%
-  calendarPlot(pollutant = "checkouts", 
-               main="Library Checkouts",
-               year = 2019)
-```
-
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
-
------
-
-## 2019 v. 2020
-
-Here is some sample code to compare two years
-
-``` r
 filtered <- reed_checkouts %>%
   filter(as.numeric(strftime(Loaned, "%m")) %in% 2:5) %>%
   group_by(Loaned) %>%
@@ -108,7 +87,7 @@ calendarPlot(filtered,
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
 ``` r
 calendarPlot(filtered,
@@ -119,4 +98,4 @@ calendarPlot(filtered,
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
