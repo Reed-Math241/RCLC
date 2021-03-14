@@ -14,7 +14,7 @@ to a checkout\!
 ## Installation
 
 The development version of Reed College Library Checkout is available
-from [GitHub](https://github.com/Reed-Math241/pkgGrpn) with:
+from [GitHub](https://github.com/Reed-Math241/RCLC) with:
 
 ``` r
 library(devtools)
