@@ -18,7 +18,7 @@ from [GitHub](https://github.com/Reed-Math241/RCLC) with:
 
 ``` r
 library(devtools)
-install_github("Reed-Math241/pkgGrpn")
+install_github("Reed-Math241/RCLC")
 ```
 
 ## Usage
